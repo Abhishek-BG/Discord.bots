@@ -1,4 +1,11 @@
 import discord
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+TOKEN = os.getenv("DISCORD_TOKEN")
+
 intents = discord.Intents.default()
 intents.message_content = True
 
@@ -19,4 +26,4 @@ async def on_message(message):
         await message.channel.send(message.content.split()[0]+' says suck these nuts')
     
     
-client.run("MTAyOTQxMjI0ODkyMzQwNjM2Ng.G9XLgv.gk5uhpnRc6WsvEJjDfIQyHxy2gjkeFb3tH2jRA")
+client.run(TOKEN)
